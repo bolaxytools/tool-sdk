@@ -44,46 +44,46 @@ func SetHost(h string) {
 }
 */
 type ChainMeta struct {
-	EventsNum          string `json:"consensus_events"`
-	EventRate          string `json:"events_per_second"`
-	TransactionsNum    string `json:"consensus_transactions"`
-	Id                 string `json:"id"`
-	BlockHeight        string `json:"last_block_index"`
-	ConsensusRound     string `json:"last_consensus_round"`
-	NodeName           string `json:"moniker"`
-	PeersNum           string `json:"num_peers"`
-	RoundEvents        string `json:"round_events"`
-	RoundRate          string `json:"rounds_per_second"`
-	State              string `json:"state"`
-	SyncRate           string `json:"sync_rate"`
-	InPoolNum          string `json:"transaction_pool"`
-	Type               string `json:"type"`
-	UnDeterminedEvents string `json:"undetermined_events"`
+	EventsNum          string `mapstructure:"consensus_events"`
+	EventRate          string `mapstructure:"events_per_second"`
+	TransactionsNum    string `mapstructure:"consensus_transactions"`
+	Id                 string `mapstructure:"id"`
+	BlockHeight        string `mapstructure:"last_block_index"`
+	ConsensusRound     string `mapstructure:"last_consensus_round"`
+	NodeName           string `mapstructure:"moniker"`
+	PeersNum           string `mapstructure:"num_peers"`
+	RoundEvents        string `mapstructure:"round_events"`
+	RoundRate          string `mapstructure:"rounds_per_second"`
+	State              string `mapstructure:"state"`
+	SyncRate           string `mapstructure:"sync_rate"`
+	InPoolNum          string `mapstructure:"transaction_pool"`
+	Type               string `mapstructure:"type"`
+	UnDeterminedEvents string `mapstructure:"undetermined_events"`
 }
 
 type RawTxRes struct {
-	TxHash       string `json:"txHash"`
-	ContractAddr string `json:"contractAddr"`
+	TxHash       string `mapstructure:"txHash"`
+	ContractAddr string `mapstructure:"contractAddr"`
 }
 
 type JsonAccount struct {
-	Address string   `json:"address"`
-	Balance *big.Int `json:"balance"`
-	Nonce   uint64   `json:"nonce"`
-	Code    string   `json:"bytecode"`
+	Address string   `mapstructure:"address"`
+	Balance *big.Int `mapstructure:"balance"`
+	Nonce   uint64   `mapstructure:"nonce"`
+	Code    string   `mapstructure:"bytecode"`
 }
 
 type JsonReceipt struct {
-	Root              common.Hash     `json:"root"`
-	TransactionHash   common.Hash     `json:"transactionHash"`
-	From              common.Address  `json:"from"`
-	To                *common.Address `json:"to"`
-	GasUsed           uint64          `json:"gasUsed"`
-	CumulativeGasUsed uint64          `json:"cumulativeGasUsed"`
-	ContractAddress   common.Address  `json:"contractAddress"`
-	Logs              []*ethTypes.Log `json:"logs"`
-	LogsBloom         ethTypes.Bloom  `json:"logsBloom"`
-	Status            uint64          `json:"status"`
+	Root              common.Hash     `mapstructure:"root"`
+	TransactionHash   common.Hash     `mapstructure:"transactionHash"`
+	From              common.Address  `mapstructure:"from"`
+	To                *common.Address `mapstructure:"to"`
+	GasUsed           uint64          `mapstructure:"gasUsed"`
+	CumulativeGasUsed uint64          `mapstructure:"cumulativeGasUsed"`
+	ContractAddress   common.Address  `mapstructure:"contractAddress"`
+	Logs              []*ethTypes.Log `mapstructure:"logs"`
+	LogsBloom         ethTypes.Bloom  `mapstructure:"logsBloom"`
+	Status            uint64          `mapstructure:"status"`
 }
 
 // SendTxArgs represents the arguments to sumbit a new transaction into the transaction pool.
@@ -104,5 +104,5 @@ type SendTxArgs struct {
 }
 
 type JsonCallRes struct {
-	Data string `json:"data"`
+	Data string `mapstructure:"data"`
 }
