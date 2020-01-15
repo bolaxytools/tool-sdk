@@ -11,15 +11,16 @@ import (
 	"github.com/bolaxy/rlp"
 )
 
+// Transaction the display transaction
 type Transaction struct {
-	Hash     string
-	From     string
-	To       string
-	Value    string
-	Gas      uint64
-	GasPrice string
-	Data     []byte
-	Nonce    uint64
+	Hash     string // Hash hex hash string e.g 0xe349b239e5b2fbb8ebe96556c3caa4c2b419f9a51af5e497bba0735c88a48b6d
+	From     string // From hex address string e.g. 0x599D7ABDB0A289F85aACA706b55D1b96cc07f348
+	To       string // To hex address string e.g. 0x599D7ABDB0A289F85aACA706b55D1b96cc07f348
+	Value    string // Value hex string for value
+	Gas      uint64 // Gas it must greater than 21001 when send to server
+	GasPrice string // GasPrice hex string for price
+	Data     []byte // Data raw input data or some other informations
+	Nonce    uint64 // Nonce nonce value
 }
 
 // GetTransactions 解析区块中的交易列表

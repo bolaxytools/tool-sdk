@@ -8,7 +8,7 @@ import (
 )
 
 var (
-	host = "http://localhost:8080"
+	defaultHost = "http://localhost:8080"
 )
 
 const (
@@ -19,10 +19,6 @@ const (
 	transferUrl = "/rawtx"
 	accountUrl  = "/account/"
 )
-
-func SetHost(h string) {
-	host = h
-}
 
 /* ChainMeta 链当前的状态，可以查询当前块高
 {
