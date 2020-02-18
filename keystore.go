@@ -1,7 +1,6 @@
 package sdk
 
 import (
-	"bytes"
 	"crypto/ecdsa"
 	"crypto/rand"
 	"math/big"
@@ -33,8 +32,7 @@ func GenerateKey() (*Key, error) {
 }
 
 func RecoverKey(raw []byte) (*Key, error) {
-	buff := bytes.NewBuffer(raw)
-	pk, err := ecdsa.GenerateKey(crypto.S256(), buff)
+	pk, err := crypto.ToECDSA(raw)
 	if err != nil {
 		return nil, err
 	}
@@ -42,7 +40,7 @@ func RecoverKey(raw []byte) (*Key, error) {
 }
 
 func (k *Key) ExportPrivateKey() []byte {
-	return k.PK.D.Bytes()
+	return crypto.FromECDSA(k.PK)
 }
 
 // GetAddress 获取hex格式账户地址字符串
